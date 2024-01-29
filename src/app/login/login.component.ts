@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../service/api.service';
-import { ILoginUser } from '../models/datauser.model';
-
+import { ILoginUser, IResponse } from '../models/datauser.model';
 
 
 @Component({
@@ -59,8 +58,8 @@ export class LoginComponent {
   
     // Servicio api (post)
     this._apiBanco.postData(datosJson).subscribe({
-      next: (data: string) => {
-        console.log("Respuesta api: ",data);
+      next: (data: IResponse) => {
+        console.log("Respuesta api: ",data.response);
       },
       error: err => console.log('Error: ->',err)
     });

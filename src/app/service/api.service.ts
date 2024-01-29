@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ILoginUser } from '../models/datauser.model';
+import { ILoginUser, IResponse } from '../models/datauser.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class ApiService {
   }
 
   // Enviar post
-  public postData(dataUser: string): Observable<string> {
-    return this._http.post<string>(`${this.urlApi}`,dataUser);
+  public postData(dataUser: string): Observable<IResponse> {
+    return this._http.post<IResponse>(`${this.urlApi}`,dataUser);
   }
 }
