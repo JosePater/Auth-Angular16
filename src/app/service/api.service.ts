@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ILoginUser } from '../models/datauser.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +13,12 @@ export class ApiService {
   constructor(private _http: HttpClient) { }
 
   // Obtener datos
-  public getData():Observable<any> {
-    return this._http.get<any>(this.urlApi);
+  public getData():Observable<ILoginUser> {
+    return this._http.get<ILoginUser>(this.urlApi);
   }
 
   // Enviar post
-  public postData(dataUser: any): Observable<any> {
-    return this._http.post<any>(`${this.urlApi}`,dataUser);
+  public postData(dataUser: string): Observable<string> {
+    return this._http.post<string>(`${this.urlApi}`,dataUser);
   }
 }
