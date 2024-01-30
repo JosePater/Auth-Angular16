@@ -1,22 +1,27 @@
 # Acerca de la página web
 
-La página contine 4 rutas incluyendo la 404:
+## Proyecto Frontend Angular
 
-- **Home:** Página principal
-- **Products:** Página de productos extraidos desde una api
+Formulario de Autenticación
+Este proyecto Frontend desarrollado en Angular presenta un formulario de autenticación que cumple con los siguientes requisitos:
 
-```javascrip
-   URL = 'https://fakestoreapi.com/products';
-```
+## Autenticación:
 
-- **ProductId:** Describe un producto en específico
-- **Contact:** Formulario con validación de datos
+El formulario de inicio de sesión requiere un nombre de usuario que debe ser un correo electrónico, con validaciones reactivas implementadas para garantizar la integridad de la entrada.
+
+## Contraseña Segura:
+
+La contraseña debe tener una longitud mínima de 8 caracteres y máxima de 15 caracteres. Las validaciones reactivas se han incorporado para asegurar el cumplimiento de estos requisitos.
+
+## Consumo de Endpoint:
+
+Se incluye la funcionalidad de consumir un endpoint mediante el método POST. Durante la prueba, se proporcionará una URL específica que el formulario utilizará para obtener una respuesta de autenticación.
+
+Este proyecto tiene como objetivo demostrar la integración efectiva de Angular con validaciones reactivas y el consumo de endpoints para el proceso de autenticación, sin necesidad de utilizar una base de datos local.
 
 #
 
-#
-
-# LandingPage
+# Auth-Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.10.
 
