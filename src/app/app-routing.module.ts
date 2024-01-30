@@ -7,8 +7,8 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'about', component: AboutComponent },
   { path: '**', component: NotFoundComponent },
 ];

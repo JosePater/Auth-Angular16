@@ -81,9 +81,9 @@ export class LoginComponent {
   redireccionar(value: boolean) {
     if (value) {
       console.log("Bienvenido!!!");
-      this._router.navigate(['/home'])
+      this._router.navigate(['/'])
     } else {
-      this._router.navigate(['/**'])
+      this._router.navigate(['/*'])
       console.log("Acceso denegado!!!");
     }
   }

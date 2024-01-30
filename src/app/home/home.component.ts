@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     // Si no está autenticado regresa al login
     if (!this._auth.getAuth()) {
-      this._router.navigate(['']);
+      this._router.navigate(['/login']);
     }
   }
 
