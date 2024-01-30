@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../service/api.service';
 import { ILoginUser, IResponse } from '../models/datauser.model';
+import { Router } from '@angular/router';
+import { AuthService } from '../service/auth.service';
 
 
 @Component({
@@ -19,7 +21,10 @@ export class LoginComponent {
   // Formulario para el login
   formularioLogin: FormGroup;
 
-  constructor(private form: FormBuilder, private _apiBanco: ApiService) {
+  // Acceso autorizado
+  // _auth -> Service
+
+  constructor(private form: FormBuilder, private _apiBanco: ApiService, private _router: Router, private _auth: AuthService) {
     // usuario vinculado con formControlName="usuario"
     this.formularioLogin = this.form.group({
       usuario: ['', [Validators.required, Validators.email]],
@@ -59,10 +64,28 @@ export class LoginComponent {
     // Servicio api (post)
     this._apiBanco.postData(datosJson).subscribe({
       next: (data: IResponse) => {
-        console.log("Respuesta api: ",data.response);
+        if (data.response == "Login successful") {
+          this._auth.setAuth(true);
+          this.redireccionar(this._auth.getAuth());
+        }
+
       },
-      error: err => console.log('Error: ->',err)
+      error: err => {
+        console.log('Error: ->',err);
+        this._auth.setAuth(false);
+        this.redireccionar(this._auth.getAuth());
+      }
     });
+  }
+  
+  redireccionar(value: boolean) {
+    if (value) {
+      console.log("Bienvenido!!!");
+      this._router.navigate(['/home'])
+    } else {
+      this._router.navigate(['/**'])
+      console.log("Acceso denegado!!!");
+    }
   }
 
 }
