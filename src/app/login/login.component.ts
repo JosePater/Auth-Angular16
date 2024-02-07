@@ -24,6 +24,8 @@ export class LoginComponent {
   // Acceso autorizado
   // _auth -> Service
 
+  loading: boolean = false;
+
   constructor(private form: FormBuilder, private _apiBanco: ApiService, private _router: Router, private _auth: AuthService) {
     // usuario vinculado con formControlName="usuario"
     this.formularioLogin = this.form.group({
@@ -53,6 +55,8 @@ export class LoginComponent {
     this.datosUsuario.user = this.formularioLogin.value.usuario;
     this.datosUsuario.password = this.formularioLogin.value.password;
     // console.log('Formulario enviado!:', this.formularioLogin.value);
+
+    this.loading = true;
     this.callLoginApi();
   }
 

@@ -29,4 +29,9 @@
       <button class="btn btn-primary m-2" type="submit" [disabled]="!formularioLogin.valid">Iniciar Sesión</button>
     </div>
   </form>
+
+  <section *ngIf="loading">
+    <span class="loader"></span>
+  </section>
+
 </section>
